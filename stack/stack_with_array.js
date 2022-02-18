@@ -2,7 +2,7 @@ let letters = []
 
 let word = "racecar"
 
-let rword = ""
+let reverse_word = ""
 
 // pushing letters in stack
 for (let i=0; i < word.length; i++){
@@ -14,10 +14,10 @@ for (let i=0; i < word.length; i++){
 
 //pop letters from stack
 for(let i=0; i < word.length; i++ ){
-    rword += letters.pop()
+    reverse_word += letters.pop()
 }
 
-if (word === rword){
+if (word === reverse_word){
     console.log(word + " is a palindrome")
 }
 else{
