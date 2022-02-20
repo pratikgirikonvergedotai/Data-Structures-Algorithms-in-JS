@@ -10,27 +10,23 @@ function hash(key, size){
 
 class HashTable{
     constructor(){
-        this.size = 10
-        this.buckets = Array(this.size)
-
-        for (let i=0; i < this.buckets.length; i++){
-            this.buckets[i] = new Map()
-        }
+        this.bucket = Array(10)
     }
 
     add(key, data){
-        let id = hash(key, this.size)
-        this.buckets[id].set(key, data)
+        let id = hash(key, 10)
+        this.bucket[id] = [key, data]
     }
 
     delete(key){
-        let id = hash(key, this.size)
-        this.buckets[id].delete(key)
+        let id = hash(key, 10)
+        this.bucket[id] = []
+        console.log(this.bucket[id])
     }
 
     search(key){
-        let id = hash(key, this.size)
-        return this.buckets[id].get(key)
+        let id = hash(key, 10)
+        console.log(this.bucket[id])
     }
 }
 
@@ -43,3 +39,5 @@ hashtable.add("3", "#alive")
 hashtable.add("4", "train to busan")
 
 console.log(hashtable)
+hashtable.search("1")
+hashtable.delete("2")
