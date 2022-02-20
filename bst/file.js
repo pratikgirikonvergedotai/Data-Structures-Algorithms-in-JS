@@ -74,13 +74,79 @@ class BST{
 
         return false
     }
+
+    // left, root, right
+    inOrder(){
+        let final = []
+        const finding = n => {
+            if (n.left){
+                finding(n.left)
+            }
+
+            final.push(n.data)
+
+            if (n.right){
+                finding(n.right)
+            }
+        }
+
+        finding(this.root)
+        return final
+    }
+    
+    // root, left, right
+    preOrder(){
+        let final = []
+        const finding = n => {
+
+            final.push(n.data)
+
+            if (n.left){
+                finding(n.left)
+            }
+
+            if (n.right){
+                finding(n.right)
+            }
+        }
+
+        finding(this.root)
+        return final
+    }
+
+    // left, right, root
+    postOrder(){
+        let final = []
+        const finding = n => {
+            if (n.left){
+                finding(n.left)
+            }
+
+            if (n.right){
+                finding(n.right)
+            }
+
+            final.push(n.data)
+        }
+
+        finding(this.root)
+        return final
+    }
+
+
 }
 
-let bst = new BST(15)
+let bst = new BST(45)
 
-bst.add(18)
-bst.add(10)
+bst.add(15)
+bst.add(36)
+bst.add(24)
 bst.add(12)
-bst.add(1)
+
+
+console.log(bst.inOrder())
+console.log(bst.preOrder())
+console.log(bst.postOrder())
+
 
 console.log(bst)
